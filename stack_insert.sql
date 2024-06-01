@@ -5,6 +5,7 @@ INSERT INTO stack_category(category_name) VALUES ('DB');
 INSERT INTO stack_category(category_name) VALUES ('Library');
 INSERT INTO stack_category(category_name) VALUES ('OS');
 
+
 -- 개발언어 데이터 삽입
 INSERT INTO stack (stack_category_id, stack_name) 
 VALUES ((SELECT category_id FROM stack_category WHERE category_name = 'language'), 'JavaScript');
