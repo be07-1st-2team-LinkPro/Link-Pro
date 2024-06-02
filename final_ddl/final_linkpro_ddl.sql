@@ -1,4 +1,4 @@
-create database linkpro;
+CREATE DATABASE IF NOT EXISTS linkpro;
 use linkpro;
 -- 개발자 정보 pro
 CREATE TABLE pro (
