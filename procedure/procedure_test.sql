@@ -4,6 +4,11 @@ call ProSignUp('hong@naver.com', '홍길동', '당무', '12345678', '010-1351-14
 call CancelOrder_Client('010-1111-2222', 1);
 call ClientDepositCash('010-1111-2222', 1000000);
 call WithdrawCash_Pro('010-1111-1111', '1111',50000);
-call CreateOrder_Client(9, 'gye@naver.com');
-call SetOrderStart(4, '010-9999-9999', 'Y');
-call SetOrderEnd(4, '010-9999-9999');
+call CreateOrder_Client(10, 'eul@naver.com');
+call SetOrderStart(8, '010-1010-1010', 'N');
+call SetOrderEnd(8, '010-1010-1010');
+call ViewOrders_Client('동작구차은우');
+call ClientWriteReview(8,'동작구차은우','5','작업 매우 만족스럽네요.');
+call ViewReviews_Pro('kayple');
+call ClientWriteReview(5,'링크프로조아', 5, '감사합니다');
+call ClientWriteReview(4,'gaygay84578', 0, '진짜 최악의 작업물입니다');
