@@ -1,5 +1,5 @@
---client 테이블
---DDL문 생략, 데이터 삽입만
+-- client 테이블
+-- DDL문 생략, 데이터 삽입만
 INSERT INTO client(client_id, client_name, client_nickname, client_email, client_pw, client_tel, client_region, client_cash, client_del_YN)
 VALUES(1, '김갑갑', '링크프로조아', 'gab@naver.com', '1234', '010-1111-2222','서울', 0, 'N');
 INSERT INTO client(client_id, client_name, client_nickname, client_email, client_pw, client_tel, client_del_YN)
