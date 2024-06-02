@@ -25,3 +25,4 @@ INSERT INTO `linkpro`.`chat` (`chat_id`, `chat_client_id`, `chat_pro_id`, `chat_
 INSERT INTO `linkpro`.`chat` (`chat_contents`) VALUES ('');
 INSERT INTO `linkpro`.`chat` (`chat_contents`) VALUES ('');
 INSERT INTO `linkpro`.`chat` (`chat_contents`) VALUES ('');
+
