@@ -11,7 +11,3 @@ BEGIN
     SET order_state = p_response              -- order_state 필드를 입력된 응답으로 설정합니다.
     WHERE order_id = p_order_id;              -- 조건: 주문 ID가 입력된 주문 ID와 일치하는 레코드
 END//
-
-DELIMITER ;
-
-
