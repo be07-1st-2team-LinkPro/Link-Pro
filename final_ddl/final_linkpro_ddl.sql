@@ -85,6 +85,8 @@ CREATE TABLE client_review (
     FOREIGN KEY (review_order_id) REFERENCES order_service(order_id),
     FOREIGN KEY (review_pro_id) REFERENCES pro(pro_id)
 );
+alter table client_review add column review_client_id bigint;
+alter tabke client_review add constraint review_client_id foreign key(review_client_id) references client(id);
 
 -- 개발자 자기소개글 pro_pr_post
 CREATE TABLE pro_pr_post (
