@@ -96,6 +96,10 @@ CREATE TABLE pro_pr_post (
     FOREIGN KEY (pr_pro_id) REFERENCES pro(pro_id)
 );
 
+-- 개발자(pro) 한명 당 자기소개글(pr_post) 딱 하나씩만 작성할 수 있도록 unique 조건 추가
+ALTER TABLE pro_pr_post ADD CONSTRAINT unique_pro_pr UNIQUE (pr_pro_id);
+
+
 -- 기술스택 카테고리 stack_category
 CREATE TABLE stack_category (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
