@@ -244,7 +244,7 @@ call ProSignUp('이메일', '이름', '닉네임', '비밀번호', '전화번호
 
 <h4>result</h4>
 
-![ProSignUp2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/prosignup2.png?raw=true)
+![ProSignUp3](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProSignUp3.png?raw=true)
 
 ---
 
