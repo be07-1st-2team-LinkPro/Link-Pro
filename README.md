@@ -1,29 +1,27 @@
 # 🤝LinkPro
 
 # 📍 프로젝트 소개
+
 ## 프로젝트 명 : LinkPro
 
 ![LinkPro로고](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/long_logo.jpg?raw=true)
 
-LinkPro는 프리랜서 개발자와 클라이언트를 연결하는 플랫폼입니다. 
+LinkPro는 프리랜서 개발자와 클라이언트를 연결하는 플랫폼입니다.
 
 이 플랫폼은 개발자들이 외주 프로젝트를 찾고 수주할 수 있도록 지원하며, 클라이언트가 필요한 개발 서비스를 쉽게 찾고 의뢰할 수 있는 기능을 제공합니다.
 
 # 📍 프로젝트 필요성
+
 ## 변화하는 취업시장과 고용형태의 변화
+
 ![알바몬 설문](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/albamon_servey.png?raw=true)
 
 - **직업에 대한 인식 변화**
-    
-    4차 산업 혁명과 코로나 19의 여파로 취업시장의 고용형태가 빠르게 변화하고 있다.
-    
-    아르바이트 구인구직 플랫폼 알바몬이 재능 거래 앱 ‘긱몬’과 함께 지난해 초 실시한 설문조사 결과에 따르면, 실제 MZ세대 사이에서도 한 직장에서 평생을 일하는 전통적인 일자리에 대한 인식이 변하고 있으며 약 65% 이상의 청년이 프리랜서 의향이 있다고 응답한 것으로 나타났다.
-    
+  4차 산업 혁명과 코로나 19의 여파로 취업시장의 고용형태가 빠르게 변화하고 있다.
+  아르바이트 구인구직 플랫폼 알바몬이 재능 거래 앱 ‘긱몬’과 함께 지난해 초 실시한 설문조사 결과에 따르면, 실제 MZ세대 사이에서도 한 직장에서 평생을 일하는 전통적인 일자리에 대한 인식이 변하고 있으며 약 65% 이상의 청년이 프리랜서 의향이 있다고 응답한 것으로 나타났다.
 - **긱잡(gig job) : 새로운 직업 형태 등장**
-    
-    4차 산업혁명과 코로나19 여파로 취업 시장에선 고용 형태가 빠르게 변화되고 있다. 필요할 때마다 계약직·임시직 등을 섭외해 일을 맡기는 ‘긱잡(gig job)’ 등의 신규 직업형태까지 등장했다.
-    
-    이에 따라 전통적인 정규직 일자리 대신 프리랜서와 프로젝트 단위의 일자리가 증가하고 있으며 LinkPro는 이러한 변화에 발맞춰, 개발자들에게 다양한 프로젝트 기회를 제공하고자 한다.
+  4차 산업혁명과 코로나19 여파로 취업 시장에선 고용 형태가 빠르게 변화되고 있다. 필요할 때마다 계약직·임시직 등을 섭외해 일을 맡기는 ‘긱잡(gig job)’ 등의 신규 직업형태까지 등장했다.
+  이에 따라 전통적인 정규직 일자리 대신 프리랜서와 프로젝트 단위의 일자리가 증가하고 있으며 LinkPro는 이러한 변화에 발맞춰, 개발자들에게 다양한 프로젝트 기회를 제공하고자 한다.
 
 ## 프로젝트 목표
 
@@ -34,26 +32,28 @@ LinkPro는 프리랜서 개발자와 클라이언트를 연결하는 플랫폼�
 # 📍프로젝트 진행과정
 
 ### WBS
+
 ![WBS](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/linkpro_wbs.PNG?raw=true)
 프로젝트 기간 : 2024.05.31 ~ 2024.06.03
 
 ### 요구사항 명세서(Functional Requirements Document)작성
+
 ![요구사항명세서](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/reqire_list.PNG?raw=true)
 
 ### 개념적 모델링 (Conceptual Modeling)
 
 - 개체 (Entity), 속성 (Attribute), 관계 (Relation) 정의
-![초기모델](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/initial_model.png?raw=true)
+  ![초기모델](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/initial_model.png?raw=true)
 
 ### 논리적 모델링 (Logical Modeling)
 
 - ERD Cloud 이용
 - 테이블 컬럼 data 타입, 타이블 간의 Key(관계)추가
 - 정규화 (Normalization) 진행
-![ERD](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/erd_cloud.PNG?raw=true)
-
+  ![ERD](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/erd_cloud.PNG?raw=true)
 
 ### 물리적 모델링 (Physical Modeling)
+
 - ERD Cloud 이용
 - 테이블 컬럼 data 타입, 타이블 간의 Key(관계)추가
 - 정규화 (Normalization) 진행
@@ -211,11 +211,13 @@ CREATE TABLE chat (
     FOREIGN KEY (chat_pro_id) REFERENCES pro(pro_id)
 );
 ```
+
 </details>
 
 ---
 
 # 📍 프로시저(Procedure)
+
 ### 📝프로시저 리스트
 
 ![프로시저 리스트](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/procedure_list.PNG?raw=true)
@@ -242,9 +244,10 @@ call ProSignUp('이메일', '이름', '닉네임', '비밀번호', '전화번호
 
 <h4>result</h4>
 
- ![ProSignUp2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/prosignup2.png?raw=true)
+![ProSignUp2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/prosignup2.png?raw=true)
 
 ---
+
 <h3>ProSignOut : 개발자 회원탈퇴</h3>
 
 작업자 회원탈퇴를 처리하는 프로시저
@@ -256,7 +259,7 @@ call ProSignUp('이메일', '이름', '닉네임', '비밀번호', '전화번호
 ```
 sql
 -- ProSignOut 프로시저
--- 작업자 회원탈퇴 
+-- 작업자 회원탈퇴
 
 DELIMITER //
 
@@ -280,14 +283,14 @@ sql
 CALL ProSignOut(10);
 ```
 
-
 <h4>result</h4>
 
 - 작업자의 리스트
-![ProSignOut1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProSignOut-bf.png?raw=true)
+  ![ProSignOut1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProSignOut-bf.png?raw=true)
 
 - pro_id 가 10인 작업자 회원 탈퇴
-![ProSignOut2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProSignOut-af.png?raw=true)
+  ![ProSignOut2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProSignOut-af.png?raw=true)
+
 ---
 
 <h3>ProUpdateProfile : 개발자 프로필 수정</h3>
@@ -371,17 +374,18 @@ CALL ProUpdateProfile(
 ![ProUpdateProfile1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProUpdateProfile-bf.png?raw=true)
 
 - pro_id =1 작업자 수정 ( 이름, 지역)
-![ProUpdateProfile2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProUpdateProfile-af.png?raw=true)
-
+  ![ProUpdateProfile2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProUpdateProfile-af.png?raw=true)
 
 ---
+
+</details>
 
 <details>
 
   <summary><h3>🛠서비스(외주 프로젝트) 관련 </h3></summary>
   <h3>CreateServicePost_pro : 개발자 서비스 등록</h3>
 
-  새로운 서비스 판매글을 등록하는 프로시저
+새로운 서비스 판매글을 등록하는 프로시저
 
 **요구사항 :** 개발자 ID, 서비스 유형, 서비스 이름, 서비스 가격, 서비스 내용, 거주 여부, 서비스 대표 이미지, 기술 스택 ID 목록을 입력받아 `pro_service` 테이블에 삽입
 
@@ -451,8 +455,7 @@ call linkpro.CreateServicePost_pro(12, 'web', '홈페이지를 완벽하게 제�
 
 - 작업자가 새롭게 등록한 판매글
 
-![개발자서비스 등록af](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/CreateServicePost_pro-af.png?raw=true)
----
+## ![개발자서비스 등록af](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/CreateServicePost_pro-af.png?raw=true)
 
 <h3>ViewServicePost_pro : 개발자 서비스 조회</h3>
 특정 개발자가 작성한 모든 서비스 판매글을 조회하는 프로시저
@@ -463,11 +466,12 @@ call linkpro.CreateServicePost_pro(12, 'web', '홈페이지를 완벽하게 제�
 sql
 call linkpro.ViewServicePost_pro(3);
 ```
+
 - 작업자가 등록한 판매글 리스트
-![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-bf.png?raw=true)
+  ![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-bf.png?raw=true)
 
 - id=3인 판매자가 등록한 판매글 리스트
-![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-af.png?raw=true)
+  ![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-af.png?raw=true)
 
 <h3>ViewServicePost_pro : 개발자 서비스 조회</h3>
 특정 개발자가 작성한 모든 서비스 판매글을 조회하는 프로시저
@@ -490,6 +494,7 @@ END//
 DELIMITER ;
 
 ```
+
 <h4> Procedure call </h4>
 
 ```
@@ -500,11 +505,10 @@ call linkpro.ViewServicePost_pro(3);
 <h4>result</h4>
 
 - 작업자가 등록한 판매글 리스트
-![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-bf.png?raw=true)
-
+  ![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-bf.png?raw=true)
 
 - id=3인 판매자가 등록한 판매글 리스트
-![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-af.png?raw=true)
+  ![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-af.png?raw=true)
 
 </details>
 
@@ -547,13 +551,13 @@ CALL CreateChat(1, 2, '안녕하세요, 프로젝트에 대해 이야기하고 �
 ![CreateChat](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateChat-bf.png?raw=true)
 
 - 채팅 추가 생성
-![CreateChat](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateChat-af.png?raw=true)
+  ![CreateChat](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateChat-af.png?raw=true)
 
 ---
+
 <h3>ViewChatContents: 채팅 조회</h3>
 
 특정 클라이언트와 작업자 사이의 채팅 내역을 조회하는 프로시저
-
 
 **요구사항** : 클라이언트 ID와 작업자 ID를 입력, chat 테이블에서 두 사용자 사이의 채팅 내역을 조회하고, 전송 시간을 기준으로 정렬
 
@@ -587,19 +591,20 @@ call linkpro.ViewChatContents(2, 5);
 <h4>result</h4>
 
 - 채팅 리스트
-![ViewChatContents-bf](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-bf.png?raw=true)
+  ![ViewChatContents-bf](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-bf.png?raw=true)
 
 - 클라이언트(client_id = 2)와 작업자 (pro_id = 5) 사이의 채팅 내역 조회
-![ViewChatContents-af](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-af.png?raw=true)
+  ![ViewChatContents-af](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-af.png?raw=true)
 
 <h3>ViewChatContents: 채팅 조회</h3>
 특정 클라이언트와 작업자 사이의 채팅 내역을 조회하는 프로시저
 
 **요구사항 :** 클라이언트 ID와 작업자 ID를 입력, chat 테이블에서 두 사용자 사이의 채팅 내역을 조회하고, 전송 시간을 기준으로 정렬
 
-<h4>Procedure Query</h4>
-
 ```sql
+-- ViewChatContents 프로시저
+-- 특정 클라이언트와 작업자 사이의 채팅 내역을 조회
+
 DELIMITER //
 
 CREATE PROCEDURE ViewChatContents(
@@ -614,16 +619,17 @@ BEGIN
 END //
 
 DELIMITER ;
-```
 
-<h4> Procedure call </h4>
+-- select * from chat;
 
-```
-sql
+-- 프로시저 테스트
+-- 클라이언트(client_id = 1)와 작업자 (pro_id = 2) 사이의 채팅 내역 조회
+-- CALL ViewChatContents(1, 2);
+
+
 call linkpro.ViewChatContents(2, 5);
-```
 
-<h4>result</h4>
+```
 
 - 채팅 리스트
   ![ViewChatContents1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-af.png?raw=true)
@@ -640,46 +646,21 @@ call linkpro.ViewChatContents(2, 5);
 
 **요구 사항:** 구매자는 보유한 캐시 한도 안에서 원하는 작업을 의뢰할 수 있으며 이메일을 통한 본인 인증이 이루어지지 않으면 데이터를 불러오지 못해 주문을 의뢰할 수 없다.
 
+<h4>Procedure Query</h4>
+
 ![CreateOrderClient1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateOrder_Client1.png?raw=true)
 
-![CreateOrderClient2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateOrder_Client2.png?raw=true)
+<h4> Procedure call </h4>
 
-```sql
+```
+sql
 call linkpro.ViewServicePost_pro(3);
 ```
 
-<h3>RespondServiceRequest</h3>
+<h4>result</h4>
 
-서비스 요청에 대한 수락 또는 거절을 처리하는 프로시저
+![CreateOrderClient2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateOrder_Client2.png?raw=true)
 
-**요구 사항:** 주문 ID와 응답('accept' 또는 'reject')을 입력받아 `order_service` 테이블에서 해당 주문의 상태를 업데이트합니다.
-
-<h4>프로시저</h4>
-
-```sql
-DELIMITER //
-
--- RespondServiceRequest 프로시저는 서비스 요청에 대한 수락 또는 거절을 처리합니다.
-CREATE PROCEDURE RespondServiceRequest(
-    IN p_order_id BIGINT,                     -- 주문 ID (입력 매개변수)
-    IN p_response ENUM('accept', 'reject')    -- 응답 (입력 매개변수: 'accept' 또는 'reject')
-)
-BEGIN
-    -- order_service 테이블에서 주어진 주문 ID에 해당하는 레코드의 상태를 업데이트합니다.
-    UPDATE order_service
-    SET order_state = p_response              -- order_state 필드를 입력된 응답으로 설정합니다.
-    WHERE order_id = p_order_id;              -- 조건: 주문 ID가 입력된 주문 ID와 일치하는 레코드
-END//
-
-call linkpro.RespondServiceRequest(6, 'accept');
-```
-
-- 작업자에게 의뢰한 주문 리스트
-
-  ![RespondServiceRequest1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/RespondServiceRequest-af.png?raw=true)
-
-- order_id = 6인 판매글의 상태를 대기 중에서 수락으로 변경
-  ![RespondServiceRequest2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/RespondServiceRequest-bf.png?raw=true)
 
 <h3>SetOrderStart</h3>
 
@@ -687,7 +668,8 @@ call linkpro.RespondServiceRequest(6, 'accept');
 
 **요구 사항:** 개발자가 주문을 수락하면 작업 금액만큼 구매자의 캐시가 차감된다. 작업 금액의 절반은 착수금으로 바로 개발자의 캐시에 추가가 되며, 나머지 절반은 유보금으로 결제 대기 테이블에 보관되고 개발자가 주문을 완료하면 유보금이 개발자의 캐시에 추가 된다. 개발자는 한번 취소한 주문은 다시 수락할 수 없으며 개발자가 프로필에 기입한 상주 여부와 관계없이 상주 여부는 반드시 표기해줘야 된다. 만약 주문 수락 시 구매자의 캐시가 작업 금액보다 부족하면 주문을 수락할 수 없다. 타인이 주문 번호를 알고 있어도 주문 의뢰를 받은 개발자가 아니면 작업을 수락할 수 없다.
 
-```sql
+```
+sql
 call linkpro.ViewServicePost_pro(3);
 ```
 
@@ -710,5 +692,30 @@ call SetOrderEnd(주문번호, '전화번호');
 ![SetOrderEnd1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/SetOrderEnd1.png?raw=true)
 
 ![SetOrderEnd2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/SetOrderEnd2.png?raw=true)
+
+<h3>ClientWriteReview : 구매자 리뷰 작성 </h3>
+
+구매자가 개발자에 대한 리뷰를 작성하는 Procedure
+
+**요구 사항**: 구매자가 이미 리뷰를 작성한 주문에 대해서는 다시 리뷰를 작성할 수 없다. 
+
+또한 리뷰는 주문이 완료됐을 때만 작성이 가능하며 리뷰 작성과 동시에 작업을 수행한 개발자의 리뷰의 평균 점수가 개발자 평점으로 update.
+
+<h4>Procedure Query</h4>
+
+![ClientWriteReview1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ClientWriteReview1.png?raw=true)
+
+
+<h4> Procedure call </h4>
+
+```
+sql
+call ClientWriteReview(주문번호,'구매자닉네임',평점,'내용');
+```
+
+<h4>result</h4>
+
+![ClientWriteReview2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ClientWriteReview2.png?raw=true)
+
 
 </details>
