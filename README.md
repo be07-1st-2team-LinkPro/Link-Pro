@@ -666,16 +666,28 @@ call linkpro.ViewServicePost_pro(3);
 
 개발자는 구매자가 요청한 주문을 수락할 수 있다.
 
-**요구 사항:** 개발자가 주문을 수락하면 작업 금액만큼 구매자의 캐시가 차감된다. 작업 금액의 절반은 착수금으로 바로 개발자의 캐시에 추가가 되며, 나머지 절반은 유보금으로 결제 대기 테이블에 보관되고 개발자가 주문을 완료하면 유보금이 개발자의 캐시에 추가 된다. 개발자는 한번 취소한 주문은 다시 수락할 수 없으며 개발자가 프로필에 기입한 상주 여부와 관계없이 상주 여부는 반드시 표기해줘야 된다. 만약 주문 수락 시 구매자의 캐시가 작업 금액보다 부족하면 주문을 수락할 수 없다. 타인이 주문 번호를 알고 있어도 주문 의뢰를 받은 개발자가 아니면 작업을 수락할 수 없다.
+**요구 사항:** 개발자가 주문을 수락하면 작업 금액만큼 구매자의 캐시가 차감된다. 
+
+작업 금액의 절반은 착수금으로 바로 개발자의 캐시에 추가가 되며, 나머지 절반은 유보금으로 결제 대기 테이블에 보관되고 개발자가 주문을 완료하면 유보금이 개발자의 캐시에 추가 된다. 
+
+개발자는 한번 취소한 주문은 다시 수락할 수 없으며 개발자가 프로필에 기입한 상주 여부와 관계없이 상주 여부는 반드시 표기해줘야 된다. 
+
+만약 주문 수락 시 구매자의 캐시가 작업 금액보다 부족하면 주문을 수락할 수 없다. 타인이 주문 번호를 알고 있어도 주문 의뢰를 받은 개발자가 아니면 작업을 수락할 수 없다.
+
+<h4>Procedure Query</h4>
+
+![SetOrderStart1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/SetOrderStart1.png?raw=true)
+
+![SetOrderStart2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/SetOrderStart2.png?raw=true)
+
+<h4> Procedure call </h4>
 
 ```
 sql
 call linkpro.ViewServicePost_pro(3);
 ```
 
-![SetOrderStart1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/SetOrderStart1.png?raw=true)
-
-![SetOrderStart2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/SetOrderStart2.png?raw=true)
+<h4>result</h4>
 
 ![SetOrderStart3](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/SetOrderStart3.png?raw=true)
 
@@ -683,13 +695,24 @@ call linkpro.ViewServicePost_pro(3);
 
 개발자는 작업이 끝나면 원할 때 작업을 마무리 할 수 있다.
 
-**요구 사항:** 개발자가 주문을 완료하면 주문 상태가 완료가 되고 개발자가 받지 못한 유보금이 개발자의 캐시에 추가된다. 주문 수락과 동일하게 주문 번호를 알고 있어도 작업을 진행하는 개발자 본인이 아니면 주문을 완료할 수 없다. 추가로 개발자는 완료된 주문에 대해서는 작업 완료를 할 수 없으며 결제 대기 테이블은 이러한 기록을 위해 작업 완료 후에도 데이터가 삭제되지 않는다.
+**요구 사항:** 개발자가 주문을 완료하면 주문 상태가 완료가 되고 개발자가 받지 못한 유보금이 개발자의 캐시에 추가된다. 
+
+주문 수락과 동일하게 주문 번호를 알고 있어도 작업을 진행하는 개발자 본인이 아니면 주문을 완료할 수 없다. 
+
+추가로 개발자는 완료된 주문에 대해서는 작업 완료를 할 수 없으며 결제 대기 테이블은 이러한 기록을 위해 작업 완료 후에도 데이터가 삭제되지 않는다.
+
+<h4>Procedure Query</h4>
+
+![SetOrderEnd1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/SetOrderEnd1.png?raw=true)
+
+
+<h4> Procedure call </h4>
 
 ```sql
 call SetOrderEnd(주문번호, '전화번호');
 ```
 
-![SetOrderEnd1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/SetOrderEnd1.png?raw=true)
+<h4>result</h4>
 
 ![SetOrderEnd2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/SetOrderEnd2.png?raw=true)
 
