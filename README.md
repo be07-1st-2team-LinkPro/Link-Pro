@@ -374,6 +374,7 @@ CALL ProUpdateProfile(
 ![ProUpdateProfile1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProUpdateProfile-bf.png?raw=true)
 
 - pro_id =1 작업자 수정 ( 이름, 지역)
+
   ![ProUpdateProfile2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProUpdateProfile-af.png?raw=true)
 
 ---
@@ -547,8 +548,10 @@ CALL CreateChat(1, 2, '안녕하세요, 프로젝트에 대해 이야기하고 �
 ```
 
 <h4>result</h4>
+
 - 채팅 리스트
 ![CreateChat](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateChat-bf.png?raw=true)
+
 
 - 채팅 추가 생성
   ![CreateChat](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateChat-af.png?raw=true)
@@ -640,7 +643,7 @@ call linkpro.ViewChatContents(2, 5);
 <summary> <h3>🛒주문 관련</h3>
 </summary>
 
-<h3>CreateOrder_Client</h3>
+<h3>CreateOrder_Client : 주문 요청</h3>
 
 서비스 구매자는 원하는 작업을 선택하여 의뢰를 신청할 수 있다.
 
@@ -662,7 +665,7 @@ call linkpro.ViewServicePost_pro(3);
 ![CreateOrderClient2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateOrder_Client2.png?raw=true)
 
 
-<h3>SetOrderStart</h3>
+<h3>SetOrderStart : 주문 수락 설정</h3>
 
 개발자는 구매자가 요청한 주문을 수락할 수 있다.
 
@@ -691,7 +694,7 @@ call linkpro.ViewServicePost_pro(3);
 
 ![SetOrderStart3](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/SetOrderStart3.png?raw=true)
 
-<h3>SetOrderEnd</h3>
+<h3>SetOrderEnd : 주문 완료 설정 </h3>
 
 개발자는 작업이 끝나면 원할 때 작업을 마무리 할 수 있다.
 
