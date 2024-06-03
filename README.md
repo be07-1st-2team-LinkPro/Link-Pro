@@ -596,9 +596,11 @@ call linkpro.ViewChatContents(2, 5);
 <h4>result</h4>
 
 - 채팅 리스트
+
   ![ViewChatContents-bf](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-bf.png?raw=true)
 
 - 클라이언트(client_id = 2)와 작업자 (pro_id = 5) 사이의 채팅 내역 조회
+
   ![ViewChatContents-af](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-af.png?raw=true)
 
 <h3>ViewChatContents: 채팅 조회</h3>
