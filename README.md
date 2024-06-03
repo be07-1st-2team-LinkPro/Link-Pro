@@ -597,10 +597,9 @@ call linkpro.ViewChatContents(2, 5);
 
 **요구사항 :** 클라이언트 ID와 작업자 ID를 입력, chat 테이블에서 두 사용자 사이의 채팅 내역을 조회하고, 전송 시간을 기준으로 정렬
 
-```sql
--- ViewChatContents 프로시저
--- 특정 클라이언트와 작업자 사이의 채팅 내역을 조회
+<h4>Procedure Query</h4>
 
+```sql
 DELIMITER //
 
 CREATE PROCEDURE ViewChatContents(
@@ -615,17 +614,16 @@ BEGIN
 END //
 
 DELIMITER ;
+```
 
--- select * from chat;
-
--- 프로시저 테스트
--- 클라이언트(client_id = 1)와 작업자 (pro_id = 2) 사이의 채팅 내역 조회
--- CALL ViewChatContents(1, 2);
-
-
-call linkpro.ViewChatContents(2, 5);
+<h4> Procedure call </h4>
 
 ```
+sql
+call linkpro.ViewChatContents(2, 5);
+```
+
+<h4>result</h4>
 
 - 채팅 리스트
   ![ViewChatContents1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-af.png?raw=true)
