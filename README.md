@@ -560,48 +560,7 @@ CALL CreateChat(1, 2, '안녕하세요, 프로젝트에 대해 이야기하고 �
 
 ---
 
-<h3>ViewChatContents: 채팅 조회</h3>
 
-특정 클라이언트와 작업자 사이의 채팅 내역을 조회하는 프로시저
-
-**요구사항** : 클라이언트 ID와 작업자 ID를 입력, chat 테이블에서 두 사용자 사이의 채팅 내역을 조회하고, 전송 시간을 기준으로 정렬
-
-<h4>Procedure Query</h4>
-
-```
-sql
-DELIMITER //
-
-CREATE PROCEDURE ViewChatContents(
-    IN p_chat_client_id BIGINT,
-    IN p_chat_pro_id BIGINT
-)
-BEGIN
-    SELECT chat_send_time, chat_contents
-    FROM chat
-    WHERE chat_client_id = p_chat_client_id AND chat_pro_id = p_chat_pro_id
-    ORDER BY chat_send_time;
-END //
-
-DELIMITER ;
-```
-
-<h4> Procedure call </h4>
-
-```
-sql
-call linkpro.ViewChatContents(2, 5);
-```
-
-<h4>result</h4>
-
-- 채팅 리스트
-
-  ![ViewChatContents-bf](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-bf.png?raw=true)
-
-- 클라이언트(client_id = 2)와 작업자 (pro_id = 5) 사이의 채팅 내역 조회
-
-  ![ViewChatContents-af](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-af.png?raw=true)
 
 <h3>ViewChatContents: 채팅 조회</h3>
 특정 클라이언트와 작업자 사이의 채팅 내역을 조회하는 프로시저
