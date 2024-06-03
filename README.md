@@ -3,7 +3,7 @@
 # 📍 프로젝트 소개
 ## 프로젝트 명 : LinkPro
 
-![LinkPro로고](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/logo_big.PNG?raw=true)
+![LinkPro로고](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/long_logo.jpg?raw=true)
 
 LinkPro는 프리랜서 개발자와 클라이언트를 연결하는 플랫폼입니다. 
 
@@ -43,7 +43,7 @@ LinkPro는 프리랜서 개발자와 클라이언트를 연결하는 플랫폼�
 ### 개념적 모델링 (Conceptual Modeling)
 
 - 개체 (Entity), 속성 (Attribute), 관계 (Relation) 정의
-- ER-Diagram 작성
+![초기모델](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/initial_model.png?raw=true)
 
 ### 논리적 모델링 (Logical Modeling)
 
@@ -54,8 +54,14 @@ LinkPro는 프리랜서 개발자와 클라이언트를 연결하는 플랫폼�
 
 
 ### 물리적 모델링 (Physical Modeling)
-### DDL문 작성
----
+- ERD Cloud 이용
+- 테이블 컬럼 data 타입, 타이블 간의 Key(관계)추가
+- 정규화 (Normalization) 진행
+
+<details><summary><h3>🔧DDL문</h3>
+
+</summary>
+
 ```
 sql
 CREATE DATABASE IF NOT EXISTS linkpro;
@@ -205,25 +211,392 @@ CREATE TABLE chat (
     FOREIGN KEY (chat_pro_id) REFERENCES pro(pro_id)
 );
 ```
+</details>
+
+---
+
 # 📍 프로시저(Procedure)
-### 프로시저 리스트
+### 📝프로시저 리스트
 ![프로시저 리스트](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/procedure_list.PNG?raw=true)
 
+<details><summary> <h3>👨‍💻개발자 관련</h3>
+</summary>
+<h3>ProSignUp : 개발자 회원가입</h3>
+
+개발자의 회원 가입을 수행하는 Procedure
+
+**요구 사항**: 가입 시 입력하는 정보 중 Email, Tel, Nickname은 구매자 테이블과 개발자 테이블 모든 곳에서 UNIQUE한 값
+
+<h4>Procedure Query</h4>
+
+![ProSignUp1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProSignUp1.png?raw=true)
+
+<h4> Procedure call </h4>
+
+```
+sql
+call ProSignUp('이메일', '이름', '닉네임', '비밀번호', '전화번호', '지역');
+
+```
+<h4>result</h4>
+
+ ![ProSignUp2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/prosignup2.png?raw=true)
+
+---
+<h3>ProSignOut : 개발자 회원탈퇴</h3>
+
+작업자 회원탈퇴를 처리하는 프로시저
+
+**요구사항** : 작업자 ID를 입력, `pro` 테이블에서 해당 작업자의 `pro_del_YN` 값을 ‘Y’ 로 업데이트하여 탈퇴 처리
+
+<h4>Procedure Query</h4>
+
+```
+sql
+-- ProSignOut 프로시저
+-- 작업자 회원탈퇴 
+
+DELIMITER //
+
+CREATE PROCEDURE ProSignOut(
+    IN p_pro_id BIGINT
+)
+BEGIN
+    UPDATE pro
+    SET pro_del_YN = 'Y'
+    WHERE pro_id = p_pro_id;
+END //
+
+DELIMITER ;
+
+```
+
+<h4> Procedure call </h4>
+
+```
+sql
+CALL ProSignOut(10);
+```
+
+
+<h4>result</h4>
+
+- 작업자의 리스트
+![ProSignOut1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProSignOut-bf.png?raw=true)
+
+- pro_id 가 10인 작업자 회원 탈퇴
+![ProSignOut2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProSignOut-af.png?raw=true)
+---
+
+<h3>ProUpdateProfile : 개발자 프로필 수정</h3>
+
+작업자 프로필을 수정하는 프로시저
+
+**요구사항** : 작업자 ID와 여러 프로필 정보를 입력, 각 입력값이 `NULL` 인 경우 해당 컬럼을 업데이트하지 않음, `coalesce` 를 사용하여 입력값이 `null` 인 경우 기존 값을 유지
+
+<h4>Procedure Query</h4>
+
+```
+sql
+DELIMITER //
+
+CREATE PROCEDURE ProUpdateProfile(
+    IN p_pro_id BIGINT,
+    IN p_pro_name VARCHAR(30),
+    IN p_pro_nickname VARCHAR(30),
+    IN p_pro_email VARCHAR(50),
+    IN p_pro_pw VARCHAR(30),
+    IN p_pro_tel VARCHAR(20),
+    IN p_pro_career_exp INT,
+    IN p_pro_reside_YN ENUM('Y', 'N'),
+    IN p_pro_region ENUM('서울', '경기 북부', '경기 남부', '부산', '대구', '인천', '광주', '대전', '울산', '세종', '강원', '충북', '충남', '전북', '전남', '경북', '경남', '제주', '해외'),
+    IN p_pro_pr_id INT,
+    IN p_pro_total_sales BIGINT,
+    IN p_pro_score DECIMAL(2,1),
+    IN p_pro_cash INT,
+    IN p_pro_del_YN ENUM('Y', 'N')
+)
+BEGIN
+    UPDATE pro
+    SET
+        pro_name = COALESCE(p_pro_name, pro_name),
+        pro_nickname = COALESCE(p_pro_nickname, pro_nickname),
+        pro_email = COALESCE(p_pro_email, pro_email),
+        pro_pw = COALESCE(p_pro_pw, pro_pw),
+        pro_tel = COALESCE(p_pro_tel, pro_tel),
+        pro_career_exp = COALESCE(p_pro_career_exp, pro_career_exp),
+        pro_reside_YN = COALESCE(p_pro_reside_YN, pro_reside_YN),
+        pro_region = COALESCE(p_pro_region, pro_region),
+        pro_pr_id = COALESCE(p_pro_pr_id, pro_pr_id),
+        pro_total_sales = COALESCE(p_pro_total_sales, pro_total_sales),
+        pro_score = COALESCE(p_pro_score, pro_score),
+        pro_cash = COALESCE(p_pro_cash, pro_cash),
+        pro_del_YN = COALESCE(p_pro_del_YN, pro_del_YN)
+    WHERE pro_id = p_pro_id;
+END //
+
+DELIMITER ;
+
+```
+
+<h4> Procedure call </h4>
+
+```
+sql
+CALL ProUpdateProfile(
+    1,
+    '김철수', -- pro_name
+    NULL,      -- pro_nickname (업데이트하지 않음)
+    NULL,      -- pro_email (업데이트하지 않음)
+    NULL, -- pro_pw
+    NULL,      -- pro_tel (업데이트하지 않음)
+    NULL,        -- pro_career_exp
+    NULL,      -- pro_reside_YN (업데이트하지 않음)
+    '서울',    -- pro_region
+    NULL,      -- pro_pr_id (업데이트하지 않음)
+    NULL,      -- pro_total_sales (업데이트하지 않음)
+    NULL,      -- pro_score (업데이트하지 않음)
+    NULL,      -- pro_cash (업데이트하지 않음)
+    NULL       -- pro_del_YN (업데이트하지 않음)
+);
+
+```
+
+<h4>result</h4>
+
+- 작업자의 리스트
+
+![ProUpdateProfile1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProUpdateProfile-bf.png?raw=true)
+
+- pro_id =1 작업자 수정 ( 이름, 지역)
+![ProUpdateProfile2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProUpdateProfile-af.png?raw=true)
+
+
+---
+
 <details>
+
   <summary><h3>🛠서비스(외주 프로젝트) 관련 </h3></summary>
   <h3>CreateServicePost_pro : 개발자 서비스 등록</h3>
 
   새로운 서비스 판매글을 등록하는 프로시저
+
 **요구사항 :** 개발자 ID, 서비스 유형, 서비스 이름, 서비스 가격, 서비스 내용, 거주 여부, 서비스 대표 이미지, 기술 스택 ID 목록을 입력받아 `pro_service` 테이블에 삽입
 
-```sql
+<h4>Procedure Query</h4>
+
+```
+sql
+DELIMITER //
+
+-- CreateServicePost 프로시저는 새로운 서비스 판매글을 등록합니다.
+CREATE procedure CreateServicePost_pro(
+    in p_pro_id bigint,         -- 작업 ID
+    in p_sv_type enum('web', 'app'),  -- 서비스 유형
+    in p_sv_name varchar(30),   -- 서비스 이름
+    in p_sv_price int,          -- 서비스 가격
+    in p_sv_contents VARCHAR(3000), -- 서비스 내용
+    in p_sv_reside_YN enum('Y', 'N'), -- 거주 여부
+    in p_sv_main_pic blob,      -- 서비스 대표 이미지
+    in p_stack_ids text         -- 기술 스택 ID 목록 (쉼표로 구분된 문자열)
+)
+BEGIN
+    declare sv_id bigint;       -- 새로운 서비스 ID를 저장할 변수
+
+    -- pro_service 테이블에 새로운 서비스 판매글을 삽입합니다.
+    insert into pro_service(sv_pro_id, sv_type, sv_name, sv_price, sv_contents, sv_reside_YN, sv_main_pic)
+    values (p_pro_id, p_sv_type, p_sv_name, p_sv_price, p_sv_contents, p_sv_reside_YN, p_sv_main_pic);
+
+    -- 방금 삽입한 서비스의 ID를 가져옵니다.
+    set sv_id = LAST_INSERT_ID();
+
+   -- service_stack 테이블에 사용된 기술 스택을 삽입합니다.
+while locate(',', p_stack_ids) > 0 DO
+    -- 쉼표로 구분된 첫 번째 기술 스택 ID 추출
+    set @stack_id = SUBSTRING_INDEX(p_stack_ids, ',', 1);
+    -- service_stack 테이블에 기술 스택 ID 삽입
+    insert into service_stack(ss_service_id, ss_stack_id) values (sv_id, @stack_id);
+    -- 처리된 기술 스택 ID를 p_stack_ids 문자열에서 제거
+    set p_stack_ids = SUBSTRING(p_stack_ids, locate(',', p_stack_ids) + 1);
+END while;
+
+-- 마지막 남은 기술 스택 ID를 삽입
+if p_stack_ids <> '' then
+    insert into service_stack(ss_service_id, ss_stack_id) values (sv_id, p_stack_ids);
+END if;
+
+    -- 마지막 남은 스택 ID를 삽입합니다.
+    if p_stack_ids <> '' then
+        insert into service_stack(ss_service_id, ss_stack_id) values (sv_id, p_stack_ids);
+    END if;
+END//
+
+DELIMITER ;
+```
+
+<h4>Procedure call</h4>
+
+```
+sql
 call linkpro.CreateServicePost_pro(12, 'web', '홈페이지를 완벽하게 제작', 1000000, '어떤 조건이든 최대한 맞춰서 제작해드립니다.', 'Y', '', '');
 ```
+
+<h4>result</h4>
+
 - 작업자가 등록한 판매글 리스트
+
 ![개발자서비스 등록bf](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/CreateServicePost_pro-bf.png?raw=true)
 
 - 작업자가 새롭게 등록한 판매글
+
 ![개발자서비스 등록af](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/CreateServicePost_pro-af.png?raw=true)
 
+<h3>ViewServicePost_pro : 개발자 서비스 조회</h3>
+특정 개발자가 작성한 모든 서비스 판매글을 조회하는 프로시저
+
+**요구사항 :** 개발자 ID를 입력받아 `pro_service` 테이블에서 해당 개발자의 모든 서비스를 조회
+
+<h4>Procedure Query</h4>
+
+```
+sql
+DELIMITER //
+
+-- view_service_posts 프로시저는 특정 작업자가 작성한 모든 서비스 판매글을 조회합니다.
+CREATE procedure ViewServicePost_pro(in p_pro_id bigint)
+BEGIN
+    -- pro_service 테이블에서 주어진 작업자 ID에 해당하는 모든 서비스를 선택합니다.
+    select * from pro_service where sv_pro_id = p_pro_id;
+END//
+
+DELIMITER ;
+
+```
+<h4> Procedure call </h4>
+
+```
+sql
+call linkpro.ViewServicePost_pro(3);
+```
+
+<h4>result</h4>
+
+- 작업자가 등록한 판매글 리스트
+![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-bf.png?raw=true)
+
+- id=3인 판매자가 등록한 판매글 리스트
+![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-af.png?raw=true)
+
 </details>
+
+<details><summary> <h3>🗨️채팅 관련</h3>
+</summary>
+<h3>CreateChat : 채팅 생성</h3>
+
+클라이언트와 작업자 간의 새로운 채팅 메시지를 생성하는 프로시저
+
+**요구사항** : 클라이언트 ID, 작업자 ID, 채팅 메시지를 입력, chat 테이블에 새로운 레코드를 삽입
+
+<h4>Procedure Query</h4>
+
+```
+sql
+DELIMITER //
+
+CREATE PROCEDURE CreateChat(
+    IN p_chat_client_id BIGINT,
+    IN p_chat_pro_id BIGINT,
+    IN p_chat_contents VARCHAR(3000)
+)
+BEGIN
+    INSERT INTO chat (chat_client_id, chat_pro_id, chat_contents)
+    VALUES (p_chat_client_id, p_chat_pro_id, p_chat_contents);
+END //
+
+DELIMITER ;
+```
+
+<h4> Procedure call </h4>
+
+```
+sql
+CALL CreateChat(1, 2, '안녕하세요, 프로젝트에 대해 이야기하고 싶습니다.');
+```
+
+<h4>result</h4>
+- 채팅 리스트
+![CreateChat](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateChat-bf.png?raw=true)
+
+- 채팅 추가 생성
+![CreateChat](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateChat-af.png?raw=true)
+
+---
+<h3>ViewChatContents: 채팅 조회</h3>
+
+특정 클라이언트와 작업자 사이의 채팅 내역을 조회하는 프로시저
+
+
+**요구사항** : 클라이언트 ID와 작업자 ID를 입력, chat 테이블에서 두 사용자 사이의 채팅 내역을 조회하고, 전송 시간을 기준으로 정렬
+
+<h4>Procedure Query</h4>
+
+```
+sql
+DELIMITER //
+
+CREATE PROCEDURE ViewChatContents(
+    IN p_chat_client_id BIGINT,
+    IN p_chat_pro_id BIGINT
+)
+BEGIN
+    SELECT chat_send_time, chat_contents
+    FROM chat
+    WHERE chat_client_id = p_chat_client_id AND chat_pro_id = p_chat_pro_id
+    ORDER BY chat_send_time;
+END //
+
+DELIMITER ;
+```
+
+<h4> Procedure call </h4>
+
+```
+sql
+call linkpro.ViewChatContents(2, 5);
+```
+
+<h4>result</h4>
+
+- 채팅 리스트
+![ViewChatContents-bf](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-bf.png?raw=true)
+
+- 클라이언트(client_id = 2)와 작업자 (pro_id = 5) 사이의 채팅 내역 조회
+![ViewChatContents-af](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-af.png?raw=true)
+
+</details>
+
+<details><summary> <h3>🛒주문 관련</h3>
+</summary>
+<h3>CreateOrder_Client</h3>
+
+
+<h3>RespondServiceRequest</h3>
+
+
+<h3>SetOrderStart</h3>
+
+
+<h3>SetOrderEnd</h3>
+
+
+<details>
+
+
+
+
+
+
+
+
+
 
