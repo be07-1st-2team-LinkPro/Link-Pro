@@ -550,10 +550,12 @@ CALL CreateChat(1, 2, '안녕하세요, 프로젝트에 대해 이야기하고 �
 <h4>result</h4>
 
 - 채팅 리스트
+
 ![CreateChat](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateChat-bf.png?raw=true)
 
 
 - 채팅 추가 생성
+
   ![CreateChat](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/CreateChat-af.png?raw=true)
 
 ---
