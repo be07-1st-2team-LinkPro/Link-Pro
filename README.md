@@ -231,15 +231,21 @@ CREATE TABLE chat (
 
 ![ProSignUp1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProSignUp1.png?raw=true)
 
+<<<<<<< HEAD
 <h4> Procedure call </h4>
 
+=======
+>>>>>>> c3f75b0a0153d3d4441e5057eebe38248a8393ac
 ```
 sql
 call ProSignUp('이메일', '이름', '닉네임', '비밀번호', '전화번호', '지역');
 
 ```
+<<<<<<< HEAD
 <h4>result</h4>
 
+=======
+>>>>>>> c3f75b0a0153d3d4441e5057eebe38248a8393ac
  ![ProSignUp2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/prosignup2.png?raw=true)
 
 ---
@@ -269,6 +275,7 @@ END //
 
 DELIMITER ;
 
+<<<<<<< HEAD
 ```
 
 <h4> Procedure call </h4>
@@ -281,13 +288,29 @@ CALL ProSignOut(10);
 
 <h4>result</h4>
 
+=======
+-- 작업자 회원탈퇴 테스트 코드
+-- 특정 작업자 탈퇴 처리 (pro_id = 10인 작업자 탈퇴 처리 예시)
+CALL ProSignOut(10);
+
+-- 테스트 확인
+-- select * from pro;
+
+-- 데이터 복구
+-- update pro set pro_del_YN = 'N' where pro_id = 10;
+
+```
+>>>>>>> c3f75b0a0153d3d4441e5057eebe38248a8393ac
 - 작업자의 리스트
 ![ProSignOut1](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProSignOut-bf.png?raw=true)
 
 - pro_id 가 10인 작업자 회원 탈퇴
 ![ProSignOut2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProSignOut-af.png?raw=true)
 ---
+<<<<<<< HEAD
 
+=======
+>>>>>>> c3f75b0a0153d3d4441e5057eebe38248a8393ac
 <h3>ProUpdateProfile : 개발자 프로필 수정</h3>
 
 작업자 프로필을 수정하는 프로시저
@@ -296,6 +319,7 @@ CALL ProSignOut(10);
 
 <h4>Procedure Query</h4>
 
+<<<<<<< HEAD
 ```
 sql
 DELIMITER //
@@ -370,6 +394,8 @@ CALL ProUpdateProfile(
 
 - pro_id =1 작업자 수정 ( 이름, 지역)
 ![ProUpdateProfile2](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ProUpdateProfile-af.png?raw=true)
+=======
+>>>>>>> c3f75b0a0153d3d4441e5057eebe38248a8393ac
 
 
 ---
@@ -383,6 +409,7 @@ CALL ProUpdateProfile(
 
 **요구사항 :** 개발자 ID, 서비스 유형, 서비스 이름, 서비스 가격, 서비스 내용, 거주 여부, 서비스 대표 이미지, 기술 스택 ID 목록을 입력받아 `pro_service` 테이블에 삽입
 
+<<<<<<< HEAD
 <h4>Procedure Query</h4>
 
 ```
@@ -443,6 +470,8 @@ call linkpro.CreateServicePost_pro(12, 'web', '홈페이지를 완벽하게 제�
 
 <h4>result</h4>
 
+=======
+>>>>>>> c3f75b0a0153d3d4441e5057eebe38248a8393ac
 - 작업자가 등록한 판매글 리스트
 
 ![개발자서비스 등록bf](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/CreateServicePost_pro-bf.png?raw=true)
@@ -450,6 +479,21 @@ call linkpro.CreateServicePost_pro(12, 'web', '홈페이지를 완벽하게 제�
 - 작업자가 새롭게 등록한 판매글
 
 ![개발자서비스 등록af](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/CreateServicePost_pro-af.png?raw=true)
+---
+
+<h3>ViewServicePost_pro : 개발자 서비스 조회</h3>
+특정 개발자가 작성한 모든 서비스 판매글을 조회하는 프로시저
+
+**요구사항 :** 개발자 ID를 입력받아 `pro_service` 테이블에서 해당 개발자의 모든 서비스를 조회
+
+```sql
+call linkpro.ViewServicePost_pro(3);
+```
+- 작업자가 등록한 판매글 리스트
+![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-bf.png?raw=true)
+
+- id=3인 판매자가 등록한 판매글 리스트
+![ViewServicePost_pro ](https://github.com/be07-1st-2team-LinkPro/Link-Pro/blob/main/read_me_img/ViewServicePost_pro-af.png?raw=true)
 
 <h3>ViewServicePost_pro : 개발자 서비스 조회</h3>
 특정 개발자가 작성한 모든 서비스 판매글을 조회하는 프로시저
@@ -493,6 +537,7 @@ call linkpro.ViewServicePost_pro(3);
 </summary>
 <h3>CreateChat : 채팅 생성</h3>
 
+<<<<<<< HEAD
 클라이언트와 작업자 간의 새로운 채팅 메시지를 생성하는 프로시저
 
 **요구사항** : 클라이언트 ID, 작업자 ID, 채팅 메시지를 입력, chat 테이블에 새로운 레코드를 삽입
@@ -572,6 +617,16 @@ call linkpro.ViewChatContents(2, 5);
 
 - 클라이언트(client_id = 2)와 작업자 (pro_id = 5) 사이의 채팅 내역 조회
 ![ViewChatContents-af](https://github.com/be07-1st-2team-LinkPro/Link_Pro/blob/main/read_me_img/ViewChatContents-af.png?raw=true)
+=======
+
+
+<h3>ViewChatContents: 채팅 조회</h3>
+
+
+
+
+<details>
+>>>>>>> c3f75b0a0153d3d4441e5057eebe38248a8393ac
 
 </details>
 
@@ -590,6 +645,7 @@ call linkpro.ViewChatContents(2, 5);
 
 
 <details>
+<<<<<<< HEAD
 
 
 
@@ -600,3 +656,5 @@ call linkpro.ViewChatContents(2, 5);
 
 
 
+=======
+>>>>>>> c3f75b0a0153d3d4441e5057eebe38248a8393ac
