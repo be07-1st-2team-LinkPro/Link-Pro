@@ -569,7 +569,8 @@ CALL CreateChat(1, 2, '안녕하세요, 프로젝트에 대해 이야기하고 �
 
 <h4>Procedure Query</h4>
 
-```sql
+```
+sql
 
 DELIMITER //
 
